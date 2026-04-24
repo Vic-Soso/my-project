@@ -12,80 +12,81 @@ body{
 
 .header{
     background: white;
-    padding: 18px 8%;
+    padding: 15px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
 .nav-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .logo {
-  width: 45px;
-  height: 45px;
-  object-fit: cover;
-  border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .brand-name {
-  font-size: 22px;
-  letter-spacing: 1px;
- 
+    font-size: 20px;
+    font-weight: bold;
 }
 
-
-.navbar{
+/* NAV LINKS */
+.navbar {
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     color: black;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     position: relative;
     transition: 0.3s;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     color: #c8b20e;
 }
 
-.navbar a::after{
+.navbar a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -6px;
+    bottom: -5px;
     width: 0%;
-    height: 3px;
+    height: 2px;
     background: #c8b20e;
     transition: 0.3s;
 }
 
 .navbar a:hover::after,
-.navbar a.active::after{
+.navbar a.active::after {
     width: 100%;
 }
 
-.navbar a.active{
-    color: #c8b20e;
+/* HAMBURGER MENU */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    /* cursor: pointer; */
 }
-.menu-toggle{
-    display:none;
-    font-size:28px;
-    cursor:pointer;
-}
+
 
 .hero-section{
     text-align:center;
     justify-content: center;
     padding:80px;
-     border: 2px solid #ddd ; 
+    border: 2px solid #ddd ; 
     margin-top: 90px;
 
 }
@@ -113,7 +114,7 @@ input{
 
 button{
     padding:10px;
-    background:#4a148c;
+    background:#ead309;
     color:white;
     border:none;
 }
@@ -176,23 +177,29 @@ button{
 }
 
 
-@media (max-width: 768px){
+@media (max-width: 768px){/*mobile view*/
 
-    .header{
-        padding: 15px 20px;
+    .menu-toggle {
+        display: block;
     }
 
-    .logo{
-        font-size: 24px;
-    }
-
-    .navbar{
+    .navbar {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
         gap: 15px;
+        padding: 20px 0;
+        display: none;
     }
 
-    .navbar a{
-        font-size: 15px;
+    .navbar.active {
+        display: flex;
     }
+
 
     .hero{
         padding: 50px 15px;
