@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Books</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books — Soki's Books</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="nav-head">
-            <img src="images/book.jpg" class="logo">
-            <h2 class="brand-name"> Soki's Books</h2>
-        </div>
+  <header class="header">
+    <div class="nav-head">
+      <img src="images/book.jpg" class="logo" alt="Logo">
+      <h2 class="brand-name">Soki's Books</h2>
+    </div>
+    <nav class="navbar" id="nav">
+      <a href="index.html">Home</a>
+      <a href="books.html" class="active">Books</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </header>
 
-        <nav class="navbar" id="nav">
-            <a href="index.html" >Home</a>
-            <a href="books.html"class="active">Books</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-                <div class="menu-toggle" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars" style="color: rgb(255, 212, 59);"></i>
-</div>
-    </header>
+  <div class="container">
 
-<div class="container">
-    <input type="text" id="searchInput" placeholder="Search for your book...">
-    <button onclick="searchBooks()">Search</button>
+    <!-- Ad Slot -->
+    <div class="ad-slot">
+      <!-- Google AdSense slot -->
+      📢 Advertisement — <small>Add your AdSense code here after approval</small>
+    </div>
 
-    <div class="books" id="bookList"></div>
-</div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for a book, author...">
+      <button onclick="searchBooks()"><i class="fa-solid fa-search"></i> Search</button>
+    </div>
 
-<script src="script.js"></script>
+    <div class="books" id="bookList">
+      <div class="loading">✨ Loading books...</div>
+    </div>
+
+    <!-- Ad Slot Bottom -->
+    <div class="ad-slot" style="margin-top: 30px;">
+      📢 Advertisement Space
+    </div>
+
+  </div>
+
+  <!-- Reader Modal -->
+  <div class="reader-overlay" id="readerOverlay">
+    <div class="reader-box">
+      <div class="reader-header">
+        <h3 id="readerTitle">Book Title</h3>
+        <button class="reader-close" onclick="closeReader()">✕</button>
+      </div>
+      <iframe class="reader-frame" id="readerFrame" src="" allowfullscreen></iframe>
+      <div class="reader-unavailable" id="readerUnavailable" style="display:none;">
+        <i class="fa-solid fa-book-open"></i>
+        <h3>Free reading not available</h3>
+        <p>This book doesn't have a free online version, but you can view its details on Open Library.</p>
+        <a href="#" id="olLink" target="_blank" rel="noopener noreferrer">View on Open Library →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
